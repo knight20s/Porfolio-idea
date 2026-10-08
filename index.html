@@ -1,164 +1,215 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#e7e4ef" />
-    <meta name="description" content="nickname — твой статус." />
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#e7e4ef"/>
+    <meta name="description" content="nickname — твой статус."/>
     <title>mysite</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://api.lanyard.rest" crossorigin />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;650&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet"/>
+    <link rel="preconnect" href="https://api.lanyard.rest" crossorigin/>
+    <link rel="stylesheet" href="styles.css"/>
     <script defer src="script.js"></script>
-  </head>
-  <body>
-    <script>
-      try { var l = localStorage.getItem('site-theme') !== 'dark'; document.body.classList.toggle('light', l); }
-      catch (e) { document.body.classList.add('light'); }
-      var hr = new Date().getHours(); if (hr >= 23 || hr < 7) document.documentElement.classList.add('night');
-    </script>
+</head>
+<body>
+<script>
+    try {
+        var l = localStorage.getItem('site-theme') !== 'dark';
+        document.body.classList.toggle('light', l);
+    } catch (e) {
+        document.body.classList.add('light');
+    }
+    var hr = new Date().getHours();
+    if (hr >= 23 || hr < 7) document.documentElement.classList.add('night');
+</script>
 
-    <div class="orb orb-1" aria-hidden="true"></div>
-    <div class="orb orb-2" aria-hidden="true"></div>
-    <div class="orb orb-3" aria-hidden="true"></div>
-    <div class="orb orb-4" aria-hidden="true"></div>
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+<div class="orb orb-3" aria-hidden="true"></div>
+<div class="orb orb-4" aria-hidden="true"></div>
 
-    <main class="shell">
-      <section class="card glass" aria-label="Профиль">
+<main class="shell">
+    <section class="card glass" aria-label="Профиль">
         <div class="banner">
-          <img src="banner.svg" alt="" data-banner />
-          <span class="glint" aria-hidden="true"></span>
-          <div class="topline">
-            <span class="chip">mysite.com</span>
-            <button class="chip theme-btn" type="button" data-theme-toggle aria-label="Сменить тему">
-              <span aria-hidden="true">◐</span><span data-theme-label>dark</span>
-            </button>
-          </div>
+            <img src="banner.gif" alt="" data-banner/>
+            <span class="glint" aria-hidden="true"></span>
+            <div class="topline">
+                <span class="chip">mysite.com</span>
+                <button class="chip theme-btn" type="button" data-theme-toggle aria-label="Сменить тему">
+                    <span aria-hidden="true">◐</span><span data-theme-label>dark</span>
+                </button>
+            </div>
         </div>
 
         <div class="body">
-          <div class="head">
-            <div class="avatar"><img src="avatar.svg" alt="аватар" /></div>
-            <div>
-              <h1 data-name>nickname <span class="dot" data-status-dot aria-hidden="true"></span></h1>
-              <p class="handle">@handle</p>
+            <div class="head">
+                <div class="avatar"><img src="avatar.jpg" alt="аватар"/></div>
+                <div>
+                    <h1 data-name>Mikola Zinhenko <span class="dot" data-status-dot aria-hidden="true"></span></h1>
+                    <p class="handle">@handle</p>
+                </div>
             </div>
-          </div>
 
-          <div class="bio">
-            <p>твой короткий статус.</p>
-            <p class="bio-night">zzz… уже поздно. иди спать.</p>
-          </div>
-
-          <div class="presence fill" data-presence hidden data-state="offline">
-            <div class="presence-main">
-              <div class="p-ava">
-                <svg class="signal" viewBox="0 0 80 80" aria-hidden="true" data-signal></svg>
-                <img data-p-avatar src="avatar.svg" alt="" referrerpolicy="no-referrer" />
-                <span class="p-badge" aria-hidden="true"></span>
-              </div>
-              <div class="p-copy">
-                <strong data-p-name>nickname</strong>
-                <p class="p-activity" data-p-activity>В сети в Discord</p>
-                <p class="p-detail" data-p-detail></p>
-              </div>
+            <div class="bio">
+                <p>твой короткий статус.</p>
+                <p class="bio-night">zzz… уже поздно. иди спать.</p>
             </div>
-            <div class="rich" data-rich hidden>
-              <span class="rich-art"><img data-rich-art alt="" hidden /><i data-rich-glyph>◈</i></span>
-              <div class="rich-copy">
-                <strong data-rich-title></strong>
-                <span data-rich-sub></span>
-                <div class="rich-bar" data-rich-bar hidden><i></i></div>
-              </div>
-              <span class="rich-time" data-rich-time></span>
-            </div>
-          </div>
 
-          <div class="player fill" data-player>
-            <audio preload="none" loop src="music.mp3"></audio>
-            <div class="player-main">
-              <div class="cover"><img src="avatar.svg" alt="" /></div>
-              <div class="player-copy">
-                <span class="player-title">mysite / loop</span>
-                <span class="player-sub"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-player-state>нажми, чтобы включить</span></span>
-              </div>
-              <button class="play-btn" type="button" data-play aria-label="Играть">
-                <svg class="i-play" viewBox="0 0 24 24"><path d="M8.2 5.4c0-1.2 1.3-1.9 2.3-1.3l9 5.6c.9.6.9 1.9 0 2.5l-9 5.6c-1 .6-2.3-.1-2.3-1.3z" fill="currentColor"/></svg>
-                <svg class="i-pause" viewBox="0 0 24 24"><rect x="5.8" y="4.5" width="4.4" height="15" rx="1.7" fill="currentColor"/><rect x="13.8" y="4.5" width="4.4" height="15" rx="1.7" fill="currentColor"/></svg>
-              </button>
+            <div class="presence fill" data-presence hidden data-state="offline">
+                <div class="presence-main">
+                    <div class="p-ava">
+                        <svg class="signal" viewBox="0 0 80 80" aria-hidden="true" data-signal></svg>
+                        <img data-p-avatar src="avatar.jpg" alt="" referrerpolicy="no-referrer"/>
+                        <span class="p-badge" aria-hidden="true"></span>
+                    </div>
+                    <div class="p-copy">
+                        <strong data-p-name>nickname</strong>
+                        <p class="p-activity" data-p-activity>В сети в Discord</p>
+                        <p class="p-detail" data-p-detail></p>
+                    </div>
+                </div>
+                <div class="rich" data-rich hidden>
+                    <span class="rich-art"><img data-rich-art alt="" hidden/><i data-rich-glyph>◈</i></span>
+                    <div class="rich-copy">
+                        <strong data-rich-title></strong>
+                        <span data-rich-sub></span>
+                        <div class="rich-bar" data-rich-bar hidden><i></i></div>
+                    </div>
+                    <span class="rich-time" data-rich-time></span>
+                </div>
             </div>
-            <div class="scrub-row">
-              <span class="time" data-elapsed>0:00</span>
-              <div class="scrub" data-scrub role="slider" tabindex="0" aria-label="Прогресс"><div class="track"><div class="fill-bar"></div></div></div>
-              <span class="time" data-remaining>-0:00</span>
-              <button class="vol-btn" type="button" data-mute hidden aria-label="Звук">
-                <svg class="i-vol" viewBox="0 0 24 24"><path d="M4 9.5v5h3.2l4.3 3.6V5.9L7.2 9.5z" fill="currentColor"/><path d="M15 9.2c1.1 1.5 1.1 4.1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                <svg class="i-mute" viewBox="0 0 24 24"><path d="M4 9.5v5h3.2l4.3 3.6V5.9L7.2 9.5z" fill="currentColor"/><path d="M15.2 9.6l4.6 4.8M19.8 9.6l-4.6 4.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-              </button>
-              <div class="scrub vol" data-volume hidden role="slider" tabindex="0" aria-label="Громкость"><div class="track"><div class="fill-bar"></div></div></div>
+
+            <div class="player fill" data-player>
+                <audio preload="none" loop src="music.mp3"></audio>
+                <div class="player-main">
+                    <div class="cover"><img src="avatar.jpg" alt=""/></div>
+                    <div class="player-copy">
+                        <span class="player-title">mysite / loop</span>
+                        <span class="player-sub"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span
+                                data-player-state>нажми, чтобы включить</span></span>
+                    </div>
+                    <button class="play-btn" type="button" data-play aria-label="Играть">
+                        <svg class="i-play" viewBox="0 0 24 24">
+                            <path d="M8.2 5.4c0-1.2 1.3-1.9 2.3-1.3l9 5.6c.9.6.9 1.9 0 2.5l-9 5.6c-1 .6-2.3-.1-2.3-1.3z"
+                                  fill="currentColor"/>
+                        </svg>
+                        <svg class="i-pause" viewBox="0 0 24 24">
+                            <rect x="5.8" y="4.5" width="4.4" height="15" rx="1.7" fill="currentColor"/>
+                            <rect x="13.8" y="4.5" width="4.4" height="15" rx="1.7" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="scrub-row">
+                    <span class="time" data-elapsed>0:00</span>
+                    <div class="scrub" data-scrub role="slider" tabindex="0" aria-label="Прогресс">
+                        <div class="track">
+                            <div class="fill-bar"></div>
+                        </div>
+                    </div>
+                    <span class="time" data-remaining>-0:00</span>
+                    <button class="vol-btn" type="button" data-mute hidden aria-label="Звук">
+                        <svg class="i-vol" viewBox="0 0 24 24">
+                            <path d="M4 9.5v5h3.2l4.3 3.6V5.9L7.2 9.5z" fill="currentColor"/>
+                            <path d="M15 9.2c1.1 1.5 1.1 4.1 0 5.6" fill="none" stroke="currentColor" stroke-width="1.8"
+                                  stroke-linecap="round"/>
+                        </svg>
+                        <svg class="i-mute" viewBox="0 0 24 24">
+                            <path d="M4 9.5v5h3.2l4.3 3.6V5.9L7.2 9.5z" fill="currentColor"/>
+                            <path d="M15.2 9.6l4.6 4.8M19.8 9.6l-4.6 4.8" fill="none" stroke="currentColor"
+                                  stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <div class="scrub vol" data-volume hidden role="slider" tabindex="0" aria-label="Громкость">
+                        <div class="track">
+                            <div class="fill-bar"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <nav class="links" aria-label="Ссылки">
-            <a class="link fill" href="https://t.me/username" target="_blank" rel="noreferrer">
-              <span class="l-icon">✈</span><span class="l-name">Telegram</span><span class="l-note">@username</span><span class="l-arrow">↗</span>
-            </a>
-            <a class="link fill" href="https://discord.com/users/000000000000000000" target="_blank" rel="noreferrer">
-              <span class="l-icon">◎</span><span class="l-name">Discord</span><span class="l-note">профиль</span><span class="l-arrow">↗</span>
-            </a>
-            <a class="link fill" href="#about">
-              <span class="l-icon">i</span><span class="l-name">About</span><span class="l-note">чуть подробнее</span><span class="l-arrow">↓</span>
-            </a>
-          </nav>
+            <nav class="links" aria-label="Ссылки">
+                <a class="link fill" href="https://t.me/username" target="_blank" rel="noreferrer">
+                    <span class="l-icon">✈</span><span class="l-name">Telegram</span><span
+                        class="l-note">@username</span><span class="l-arrow">↗</span>
+                </a>
+                <a class="link fill" href="https://discord.com/users/000000000000000000" target="_blank"
+                   rel="noreferrer">
+                    <span class="l-icon">◎</span><span class="l-name">Discord</span><span
+                        class="l-note">профиль</span><span class="l-arrow">↗</span>
+                </a>
+                <a class="link fill" href="#about">
+                    <span class="l-icon">i</span><span class="l-name">About</span><span
+                        class="l-note">чуть подробнее</span><span class="l-arrow">↓</span>
+                </a>
+            </nav>
 
-          <footer class="foot">
-            <span class="status" data-status-wrap data-state="loading"><i></i> <span data-status-text>проверяю Discord</span></span>
-            <span class="views"><span aria-hidden="true">◉</span> <span data-views>—</span> просмотров</span>
-          </footer>
+            <footer class="foot">
+                <span class="status" data-status-wrap data-state="loading"><i></i> <span data-status-text>проверяю Discord</span></span>
+                <span class="views"><span aria-hidden="true">◉</span> <span data-views>—</span> просмотров</span>
+            </footer>
         </div>
-      </section>
+    </section>
 
-      <section class="about glass" id="about" aria-label="Обо мне">
+    <section class="about glass" id="about" aria-label="Обо мне">
         <span class="tag">.about <i data-hex-addr>00000000</i></span>
         <div class="hexdump" data-hexdump aria-hidden="true"></div>
         <p>пара предложений о себе: чем занимаешься, что любишь, чем живёшь.</p>
 
         <div class="block">
-          <span class="tag">.facts</span>
-          <dl class="facts">
-            <div><dt>focus</dt><dd>то, чем ты занят</dd></div>
-            <div><dt>langs</dt><dd>ru · en</dd></div>
-            <div><dt>timezone</dt><dd data-tz-label>UTC+3</dd></div>
-            <div><dt>local time</dt><dd><span class="clock" data-clock>--:--</span><span class="sleep" data-sleep data-state="unknown"><i></i><span data-sleep-label>—</span></span></dd></div>
-          </dl>
+            <span class="tag">.facts</span>
+            <dl class="facts">
+                <div>
+                    <dt>focus</dt>
+                    <dd>то, чем ты занят</dd>
+                </div>
+                <div>
+                    <dt>langs</dt>
+                    <dd>ru · en</dd>
+                </div>
+                <div>
+                    <dt>timezone</dt>
+                    <dd data-tz-label>UTC+3</dd>
+                </div>
+                <div>
+                    <dt>local time</dt>
+                    <dd><span class="clock" data-clock>--:--</span><span class="sleep" data-sleep
+                                                                         data-state="unknown"><i></i><span
+                            data-sleep-label>—</span></span></dd>
+                </div>
+            </dl>
         </div>
 
         <div class="block">
-          <span class="tag">.ask <i>me about</i></span>
-          <ul class="ask"><li>тема 1</li><li>тема 2</li><li>тема 3</li></ul>
+            <span class="tag">.ask <i>me about</i></span>
+            <ul class="ask">
+                <li>тема 1</li>
+                <li>тема 2</li>
+                <li>тема 3</li>
+            </ul>
         </div>
 
         <div class="block">
-          <span class="tag">.fav <i>tracks</i></span>
-          <ol class="tracks">
-            <li><span class="n">01</span><span>трек <span class="by">· артист</span></span></li>
-            <li><span class="n">02</span><span>трек <span class="by">· артист</span></span></li>
-            <li><span class="n">03</span><span>трек <span class="by">· артист</span></span></li>
-          </ol>
+            <span class="tag">.fav <i>tracks</i></span>
+            <ol class="tracks">
+                <li><span class="n">01</span><span>трек <span class="by">· артист</span></span></li>
+                <li><span class="n">02</span><span>трек <span class="by">· артист</span></span></li>
+                <li><span class="n">03</span><span>трек <span class="by">· артист</span></span></li>
+            </ol>
         </div>
 
         <div class="block">
-          <span class="tag">.log</span>
-          <ol class="timeline">
-            <li><span class="when">2025</span><span>с чего всё началось</span></li>
-            <li><span class="when">2026</span><span>что было дальше</span></li>
-            <li class="now"><span class="when">now</span><span>что сейчас</span></li>
-          </ol>
+            <span class="tag">.log</span>
+            <ol class="timeline">
+                <li><span class="when">2025</span><span>с чего всё началось</span></li>
+                <li><span class="when">2026</span><span>что было дальше</span></li>
+                <li class="now"><span class="when">now</span><span>что сейчас</span></li>
+            </ol>
         </div>
-      </section>
-    </main>
-    <div class="grain" aria-hidden="true"></div>
-  </body>
+    </section>
+</main>
+<div class="grain" aria-hidden="true"></div>
+</body>
 </html>
