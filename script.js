@@ -72,21 +72,6 @@ const sweep = () => {
 };
 if (!reduced) setTimeout(sweep, 1800);
 
-// ===== глитч по клику на имя =====
-const nameEl = $('[data-name]');
-nameEl.addEventListener('click', () => {
-    const banner = $('.banner');
-    nameEl.classList.remove('glitch');
-    banner.classList.remove('glitch');
-    void nameEl.offsetWidth;
-    nameEl.classList.add('glitch');
-    banner.classList.add('glitch');
-    setTimeout(() => {
-        nameEl.classList.remove('glitch');
-        banner.classList.remove('glitch');
-    }, 850);
-});
-
 // ===== кольцо-сигнал вокруг аватарки =====
 const signal = $('[data-signal]');
 signal.innerHTML = Array.from({length: 36}, (_, i) => {

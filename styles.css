@@ -274,10 +274,6 @@ body.is-playing .orb {
     will-change: translate;
 }
 
-.banner.glitch img {
-    animation: glitch .8s steps(1, end);
-}
-
 .glint {
     position: absolute;
     inset: 0;
@@ -372,11 +368,7 @@ h1 {
     cursor: default;
 }
 
-h1.glitch {
-    animation: name-glitch .8s steps(1, end);
-}
-
-.handle {
+.prof {
     margin: 0;
     color: var(--muted);
     font: 12px var(--mono);
@@ -1203,56 +1195,6 @@ body.light .hexdump {
     }
     to {
         transform: scaleY(1.06);
-    }
-}
-
-@keyframes name-glitch {
-    0% {
-        transform: translate(2px, -1px);
-        text-shadow: -2px 0 rgba(var(--o2), .9), 2px 0 rgba(var(--o1), .9);
-    }
-    20% {
-        transform: translate(-3px, 1px);
-        clip-path: inset(10% 0 40% 0);
-    }
-    40% {
-        transform: translate(1px, 2px);
-        clip-path: inset(50% 0 5% 0);
-    }
-    60% {
-        transform: translate(-1px, -2px);
-        clip-path: none;
-        text-shadow: 2px 0 rgba(var(--o3), .9), -2px 0 rgba(var(--o1), .9);
-    }
-    80% {
-        transform: translate(2px, 0);
-    }
-    100% {
-        transform: none;
-        text-shadow: none;
-    }
-}
-
-@keyframes glitch {
-    0% {
-        filter: hue-rotate(60deg) contrast(1.4);
-        translate: 4px 0;
-    }
-    25% {
-        filter: invert(.1) saturate(3);
-        translate: -6px 2px;
-    }
-    50% {
-        filter: hue-rotate(-80deg);
-        translate: 3px -2px;
-    }
-    75% {
-        filter: contrast(2) grayscale(1);
-        translate: -2px 0;
-    }
-    100% {
-        filter: none;
-        translate: 0 0;
     }
 }
 
